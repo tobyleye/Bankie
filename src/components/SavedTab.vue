@@ -11,9 +11,10 @@
         @click="$emit('viewRecord', record.id)">
         <div class="record">
           <img :src="getBankLogo(record.bank)" alt="logo">
-          <div>
-            <div class="record-info"><span>{{ record.type }}</span> <span>{{ record.name}}</span></div>
-            <div class="record-number">{{ record.number }}</div>
+          <div class="record-content">
+            <span class="record-name">{{ record.name}}</span>
+            <span class="record-number">{{ record.number }}</span>
+            <span :style="getTypeStyle(record.type)" class="record-type">{{ record.type }}</span>
           </div>  
         </div>
       </li>
@@ -36,6 +37,12 @@
       getBankLogo(bankName) {
         const logo = banks.find(bank => bank.name === bankName).logo
         return require(`../assets/logos/${logo}`)
+      },
+      getTypeStyle(type) {
+        // a wrapper used to get the style applied to a specific record type 
+        // use orange color for phone & a light green for accounts
+        const color = (type == 'phone' ? '#ff9800' : '#009688');
+        return `border-color: ${color}; color: ${color}`
       }
     }
   }
@@ -74,36 +81,35 @@
     align-items: center;
     text-transform: none;
   }
-
-  .record-info span {
-    display: block;
-  }
-
-  .record-info span:nth-child(2) {
-    display: inline-block;
-    font-size: 14px;
-    font-weight: 600;
-    color: #444;
-    text-transform: capitalize;
-  }
-
-  .record-info span:nth-child(1) {
-    font-size: 10px;
-    font-weight: 300;
-    margin-bottom: 1px;
-    color: #999;
-    text-transform: uppercase;
+   
+  .record-content {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
   }
 
   .record-number {
     color: #999;    
-    margin-top: 5px;
+    margin-bottom: 7px;
     font-size: 12px;
     letter-spacing: 1px;
   }
-
-  .record-info {
+   
+  .record-name {
+    text-transform: capitalize;
     font-size: 14px;
+    font-weight: 600;
+  }
+
+  .record-type {
+    font-size: 8px;
+    text-transform: uppercase;
+    font-weight: 400;
+    border: 1px solid #e0e0e0;
+    border-radius: 40px;
+    padding: 3px 12px;
+    text-align: center;
+    color: #444;
   }
   
   /* transition for saved list */
