@@ -1,0 +1,16 @@
+{
+  "name": "Bankie",
+  "short_name": "Weather",
+  "start_url": "index.html",
+  "display": "standalone",
+  "description": "",
+  "theme_color": "#2b5876",
+  "background_color": "#fff",
+  "icons": [
+    {
+      "src": "",
+      "size": "",
+      "type": ""
+    }
+  ] 
+}
