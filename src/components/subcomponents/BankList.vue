@@ -23,8 +23,7 @@
     }),
     methods: {
       getLogoPath(logo) {
-        const path = `/static/logos/${logo}`
-        return path
+        return `/static/logos/${logo}`
       }
     }
   }
