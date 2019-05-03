@@ -40,7 +40,7 @@
       },
       getTypeStyle(type) {
         // a wrapper used to get the style applied to a specific record type 
-        // use orange color for phone & a light green for accounts
+        // use orange color for phone & a teal for account
         const color = (type == 'phone' ? '#ff9800' : '#009688');
         return `border-color: ${color}; color: ${color}`
       }
