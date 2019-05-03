@@ -114,7 +114,7 @@
   
   /* transition for saved list */
   .list-enter-active, .list-leave-active {
-    transition: all .35s ease;
+    transition: all .5s ease;
   }
 
   .list-leave-to {
