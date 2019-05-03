@@ -23,7 +23,7 @@
     }),
     methods: {
       getLogoPath(logo) {
-        const path = require(`../../assets/logos/${logo}`)
+        const path = `/static/logos/${logo}`
         return path
       }
     }

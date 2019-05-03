@@ -57,8 +57,8 @@
     },
     computed: {
       selectedBankLogo() {
-        const path = require(`./assets/logos/${this.selectedBank.logo}`);
-        return path
+        return `/static/logos/${this.selectedBank.logo}`
+        
       }
     },
     data: () => ({
