@@ -36,7 +36,7 @@
     methods: {
       getBankLogo(bankName) {
         const logo = banks.find(bank => bank.name === bankName).logo
-        return require(`../assets/logos/${logo}`)
+        return `/static/logos/${logo}`
       },
       getTypeStyle(type) {
         // a wrapper used to get the style applied to a specific record type 
