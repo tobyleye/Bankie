@@ -8,6 +8,7 @@ module.exports = {
     plugins: [
       new ServiceWorkerWebpackPlugin({
         entry: path.join(__dirname, 'src/sw.js'),
+        excludes: ['**/.*', '**/*.map', '**/*.svg'],
       })
     ]
   }
