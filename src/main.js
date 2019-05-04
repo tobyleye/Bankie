@@ -9,5 +9,5 @@ new Vue({
 }).$mount('#app')
 
 if ('serviceWorker' in navigator) {
-  const registeration = runtime.register();
+  runtime.register();
 }
