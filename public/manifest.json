@@ -1,0 +1,35 @@
+{
+  "name": "Bankie",
+  "short_name": "Bankie",
+  "start_url": "index.html",
+  "display": "standalone",
+  "description": "Generate and save USSD codes for nigerian banks without stress",
+  "theme_color": "#2b5876",
+  "background_color": "#fff",
+  "lang": "en-US",
+  "icons": [{
+      "src": "/static/icons/icon-128.png",
+      "sizes": "128x128",
+      "type": "image/png"
+    }, {
+      "src": "/static/icons/icon-144.png",
+      "sizes": "144x144",
+      "type": "image/png"
+    }, {
+      "src": "/static/icons/icon-152.png",
+      "sizes": "152x152",
+      "type": "image/png"
+    }, {
+      "src": "/static/icons/icon-180.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }, {
+      "src": "/static/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }, {
+      "src": "/static/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }]
+}

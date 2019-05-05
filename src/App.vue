@@ -36,12 +36,16 @@
       :record="record" 
       @generateCode="generateCode"
       @deleteRecord="deleteRecord"/>
+
+    <!-- Install Pprompt -->
+    <InstallPrompt/>
   </div>
 </template>
 
 <script>
   import RenderCode from './components/subcomponents/RenderCode.vue';
   import ViewRecord from './components/subcomponents/ViewRecord.vue';
+  import InstallPrompt from './components/subcomponents/InstallPrompt';
   import Header from './components/Header.vue';
   import CreateTab from './components/CreateTab.vue';
   import SavedTab from './components/SavedTab.vue';
@@ -54,6 +58,7 @@
       SavedTab,
       RenderCode,
       ViewRecord,
+      InstallPrompt,
     },
     computed: {
       selectedBankLogo() {

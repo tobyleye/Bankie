@@ -2,7 +2,7 @@
   <form id="transfer-money" @submit.prevent="submitForm">
     <div class="form-group">
       <label for="account-number">Account Number</label>
-      <input v-model="number" type="number" id="account-number" min="0" class="form-control" placeholder="012345689" required>
+      <input v-model="number" type="number" id="account-number" min="0" class="form-control" placeholder="0123456789" required>
     </div>
     <div class="form-group">
       <label for="amount-to-account">Amount</label>
@@ -32,7 +32,7 @@
     </div>
     <div v-show="saveRecord" class="form-group">
       <label for="account-name">Account Name</label>
-      <input type="text" class="form-control" v-model="recordName" id="account-name" placeholder="Aruwajoye Deji" :required="saveRecord">
+      <input type="text" class="form-control" v-model="recordName" id="account-name" placeholder="Jane Doe" :required="saveRecord">
     </div>
     
     <div class="submit">
