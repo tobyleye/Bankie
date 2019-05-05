@@ -1,13 +1,13 @@
 // sw.js
 const DEBUG = true 
-const { assets } = serviceWorkerOption;
+const { assets } = serviceWorkerOption
+
 const isExcluded = f => /hot-update|sockjs/.test(f);
 
 const FILES_TO_CACHE = [
   '/',
-  '/manifest.json',
   ...assets.filter(file => !isExcluded(file))
-];
+]; 
   
 const LOGOS_TO_CACHE = [
   '/static/logos/Access Bank PLC Logo.svg',
@@ -30,7 +30,7 @@ const LOGOS_TO_CACHE = [
 
 const SITE_CACHE = {
   'bankie-static-v4': FILES_TO_CACHE,
-  'bankie-logos': LOGOS_TO_CACHE
+  'bankie-logos-v1': LOGOS_TO_CACHE
 };
 
 // catch app assets upfront 
@@ -68,8 +68,10 @@ self.addEventListener('activate', event => {
           caches.delete(cacheName);
         }
       })
-    ).then(() => self.clients.claim());
+    );
   }());
+
+  return self.clients.claim()
 });
 
 
@@ -81,7 +83,6 @@ self.addEventListener('fetch', event => {
   // fetch resources from the cache first if there's a match 
   event.respondWith(async function() {
     const response =  await caches.match(event.request);
-    // return response || fetch(event.request);
     if (response) {
       if (DEBUG) {
         console.log('[service-worker] Found in cache', event.request.url, response);
@@ -89,20 +90,7 @@ self.addEventListener('fetch', event => {
       return response;
     }
 
-    //  if request is not available in cache 
-    let requestClone = event.request.clone();
-    fetch(requestClone)
-      .then(response => {
-        let responseClone = response.clone()
-        if (event.request.url.search('.png|.ico') > -1 ) {
-          caches.open('bankie-logos').then(cache => {
-            cache.put(event.request, responseClone);
-            return response
-          })
-        }
-      })
-      .catch(error => console.log(error));
-
+    return fetch(event.request)
   }())
 })
 

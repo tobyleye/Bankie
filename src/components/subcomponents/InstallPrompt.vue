@@ -33,6 +33,8 @@
       handleA2HSResponse(choiceResult) {
         if (choiceResult.outcome == 'accepted') {
           console.log('User accepted');
+          // close custom prompt 
+          this.showInstallBanner = false;
         } else { 
           console.log('User dismissed it');
         }

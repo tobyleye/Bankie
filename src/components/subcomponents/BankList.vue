@@ -33,7 +33,7 @@
   .bank-item {
     padding: 1.5em 1.6em !important;
   }  
-  
+
   .credit {
     text-align: center;
     font-size: 14px;
@@ -45,7 +45,6 @@
   .credit a {
     text-decoration: none;
     color: #607D8B;
-    text-decoration: underline;
     font-weight: 500;
   }
 </style>

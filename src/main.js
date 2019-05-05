@@ -9,5 +9,7 @@ new Vue({
 }).$mount('#app')
 
 if ('serviceWorker' in navigator) {
-  runtime.register();
+  window.addEventListener('load', () => {
+    runtime.register();
+  })
 }
