@@ -25,6 +25,7 @@
     },
     methods: {
       showA2HSPrompt() {
+        this.showInstallBanner = false;
         installEvent.prompt();
         installEvent.userChoice.then(this.handleA2HSResponse);
       },

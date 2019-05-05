@@ -25,7 +25,7 @@
     </div>
     <div class="form-group" v-show="saveRecord">
       <label for="record-name">Name to save as</label>
-      <input type="text" v-model="recordName" placeholder="Ada's MTN" class="form-control" id="record-name" :required="saveRecord">
+      <input type="text" v-model="recordName" placeholder="Jane's Airtel" class="form-control" id="record-name" :required="saveRecord">
     </div>
     <div class="submit">
       <button role="submit" class="button">generate code</button>
