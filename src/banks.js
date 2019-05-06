@@ -146,8 +146,8 @@ export default [
     codes: {
       'menu': '*826#',
       'balance': '*826#',
-      'transfer-self': '*826*1*{{amount}}{{number}}#',
-      'transfer-others': '*826*2*{{amount}}{{number}}#',
+      'transfer-self': '*826*1*{{amount}}*{{number}}#',
+      'transfer-others': '*826*2*{{amount}}*{{number}}#',
       'airtime-self': '*826*{{amount}}#',
       'airtime-others': '*826*{{amount}}*{{number}}#',
     }
