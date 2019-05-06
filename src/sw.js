@@ -48,7 +48,8 @@ self.addEventListener('install', event => {
   if (DEBUG) {
     console.log('[service-worker] Install event');
   }
-
+  self.skipWaiting();
+  
   // Add core app files to cache during service worker installation
   event.waitUntil(preCache());
 })
