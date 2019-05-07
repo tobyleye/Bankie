@@ -3,7 +3,6 @@
     <Header>
       <div slot="header-inner" 
         v-if="step != 1 && Object.keys(selectedBank).length" class="intro header-inner">
-        <!-- style="background: #607d8b"> -->
         <div class="logo-holder">
           <img :src="selectedBankLogo" alt="logo">
         </div>
@@ -14,7 +13,7 @@
           <div v-if="step > 1" class="tab-back tab" @click="previousStep">
             <i class="chevron-arrow-left"></i>
             Back</div>
-          <div class="tab" @click="showSavedTransaction">Saved</div>
+          <div class="tab" @click="showSavedRecords">Saved</div>
           <div :class="['nav-indicator', currentTab]"></div>
         </div>
       </nav>
@@ -93,7 +92,7 @@
         this.step = 1;
         this.selectedBank = {}
       },
-      showSavedTransaction() {
+      showSavedRecords() {
         this.resetToFirstStep() // reset step 
         this.currentTab = 'saved';
       },
@@ -103,7 +102,7 @@
           el => record.action == el.action && record.number == el.number && record.bank == el.bank
         )
         if (recordExist) return;
-        // get the max record id
+        // get the max record id & increment by 1
         const id = this.savedRecords.reduce(function(acc, currentRecord) {
           if (currentRecord.id > acc.id) return currentRecord; 
         }, {id: 0}).id + 1;
@@ -161,7 +160,6 @@
             this.render(code);
             break;
         }
-        // this.render(code);
       },
       render(code) {
         this.code = code;
