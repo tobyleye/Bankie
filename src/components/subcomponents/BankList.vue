@@ -43,7 +43,7 @@
   }
 
   .credit a {
-    text-decoration: none;
+    text-decoration: underline;
     color: #607D8B;
     font-weight: 500;
   }
