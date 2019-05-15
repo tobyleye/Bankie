@@ -28,7 +28,7 @@
       <input type="text" v-model="recordName" placeholder="Jane's Airtel" class="form-control" id="record-name" :required="saveRecord">
     </div>
     <div class="submit">
-      <button role="submit" class="button">generate code</button>
+      <button :style="submitBtnStyle" role="submit" class="button">generate code</button>
     </div>
   </form>
 </template>
@@ -36,12 +36,23 @@
 <script>
   export default {
     name: 'SendAirtimeForm',
+    props: {
+      theme: {
+        type: String,
+        required: true,
+      }
+    },
     data: () => ({
       number: '',
       amount: '',
       recordName: '',
       saveRecord: false 
     }),
+    computed: {
+      submitBtnStyle() {
+        return `border-color: ${this.theme}; color: ${this.theme}`
+      }
+    },
     methods: {
       submitForm() {
         const { number, amount, saveRecord, recordName } = this;

@@ -29,7 +29,7 @@ const LOGOS_TO_CACHE = [
 ]
 
 const SITE_CACHE = {
-  'bankie-static-v4-1': FILES_TO_CACHE,
+  'bankie-static-v4.2': FILES_TO_CACHE,
   'bankie-logos-v1': LOGOS_TO_CACHE
 };
 
@@ -49,7 +49,7 @@ self.addEventListener('install', event => {
     console.log('[service-worker] Install event');
   }
   self.skipWaiting();
-  
+
   // Add core app files to cache during service worker installation
   event.waitUntil(preCache());
 })

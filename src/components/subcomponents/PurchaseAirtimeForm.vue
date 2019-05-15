@@ -13,7 +13,7 @@
       </div>
     </div>
     <div class="submit">
-      <button role="submit" class="button">generate code</button>
+      <button :style="submitBtnStyle" role="submit" class="button">generate code</button>
     </div>
   </form>
 </template>
@@ -21,9 +21,20 @@
 <script>
   export default {
     name: 'PurchaseAirtimeForm',
+    props: {
+      theme: {
+        type: String,
+        required: true,
+      }
+    },
     data: () => ({
       amount: '',
     }),
+     computed: {
+      submitBtnStyle() {
+        return `border-color: ${this.theme}; color: ${this.theme}`
+      }
+    },
     methods: {
       submitForm() {
         const { amount } = this;

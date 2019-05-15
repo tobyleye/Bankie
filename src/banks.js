@@ -10,6 +10,7 @@ export default [
   {
     name: 'Access Bank',
     logo: 'Access Bank PLC Logo.svg',
+    theme: '#ee7e01',
     menu: ALL,
     codes: {
       'menu': '*901#',
@@ -22,6 +23,7 @@ export default [
   }, {
     name: 'Ecobank',
     logo: 'Ecobank Logo.svg',
+    theme: '#023448',
     menu: [
       { title: 'purchase airtime', action: 'airtime-self'},
       { title: 'main menu', action: 'menu'},
@@ -33,6 +35,7 @@ export default [
   }, {
     name: 'Fidelity Bank',
     logo: 'Fidelity Bank Nigeria Logo.svg',
+    theme: '#0e237e',
     menu: ALL,
     codes: {
       'menu': '*770#',
@@ -45,6 +48,7 @@ export default [
   }, {
     name: 'First Bank',
     logo: 'First Bank Nigeria Logo.svg',
+    theme: '#022e64',
     menu: ALL,
     codes: {
       'menu': '*894#',
@@ -57,6 +61,7 @@ export default [
   }, {
     name: 'First City Monument Bank',
     shortName: "FCMB",
+    theme: '#5c2684',
     logo: 'First City Monument Bank Ltd Logo.svg',
     menu: ALL,
     codes: {
@@ -71,6 +76,7 @@ export default [
     name: 'Guaranty Trust Bank',
     shortName: 'GTBank',
     logo: 'Guaranty Trust Bank Logo.svg',
+    theme: '#dd4f05',
     menu: ALL,
     codes: {
       'menu': '*737#',
@@ -83,6 +89,7 @@ export default [
   }, {
     name: 'Heritage Bank',
     logo: 'Heritage Bank PLC Logo.svg',
+    theme: '#4FC143',
     menu: ALL,
     codes: {
       'menu': '*322*030#',
@@ -95,6 +102,7 @@ export default [
   }, {
     name: 'Keystone Bank',
     logo: 'Keystone Bank Limited Logo.svg',
+    theme: '#102b5b',
     menu: ALL,
     codes: {
       'menu': '*7111#',
@@ -107,6 +115,7 @@ export default [
   }, {
     name: 'Polaris Bank',
     logo: 'Polaris Bank Logo.svg',
+    theme: '#781596',
     menu: ALL,
     codes: {
       'menu': '*833#',
@@ -119,6 +128,7 @@ export default [
   }, {
     name: 'Stanbic IBTC Bank',
     logo: 'Stanbic IBTC Bank Logo.svg',
+    theme: '#0d3692',
     menu: [
       { title: 'purchase airtime', action: 'airtime-self' },
       { title: 'main menu', action: 'menu' },
@@ -130,6 +140,7 @@ export default [
   }, {
     name: 'Sterling Bank',
     logo: 'Sterling Bank Plc Logo.svg',
+    theme: '#d92028',
     menu: ALL,
     codes: {
       'menu': '*822#',
@@ -142,6 +153,7 @@ export default [
   }, {
     name: 'Union Bank',
     logo: 'Union Bank Nigeria Logo.svg',
+    theme: '#00adef',
     menu: ALL,
     codes: {
       'menu': '*826#',
@@ -154,6 +166,7 @@ export default [
   },{
     name: 'UBA',
     logo: 'UBA Logo.svg',
+    theme: '#d70900',
     menu: ALL,
     codes: {
       'menu': '*919#',
@@ -166,6 +179,7 @@ export default [
   }, {
     name: 'Wema Bank',
     logo: 'Wema Bank Logo.svg',
+    theme: '#922791',
     menu: ALL,
     codes: {
       'menu': '*945#',
@@ -178,6 +192,7 @@ export default [
   }, {
     name: 'Zenith Bank',
     logo: 'Zenith Bank Logo.svg',
+    theme: '#e3000f',
     menu: ALL,
     codes: {
       'menu': '*966#',

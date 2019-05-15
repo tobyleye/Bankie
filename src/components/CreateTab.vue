@@ -2,13 +2,24 @@
   <div>
     <transition :name="transition">
       <BankList v-if="step == 1" @onSelectBank="onSelectBank"/>
-      <TransactionMenu v-if="step == 2"
+      <TransactionMenu 
+        v-if="step == 2"
+        :theme="selectedBank.theme"
         :menu="selectedBank.menu" 
         @onClickAction="onClickAction"/>
       <div class="form-container" v-if="step == 3">
-        <TransferMoneyForm v-show="formToShow == 'transfer'" :selectedBank="selectedBank" @submitForm="submitForm"/>
-        <SendAirtimeForm v-show="formToShow == 'airtime-others'" @submitForm="submitForm"/>
-        <PurchaseAirtimeForm v-show="formToShow == 'airtime-self'" @submitForm="submitForm"/>
+        <TransferMoneyForm 
+          v-show="formToShow == 'transfer'" 
+          :selectedBank="selectedBank" 
+          @submitForm="submitForm"/>
+        <SendAirtimeForm 
+          v-show="formToShow == 'airtime-others'" 
+          :theme="selectedBank.theme"
+          @submitForm="submitForm"/>
+        <PurchaseAirtimeForm 
+          v-show="formToShow == 'airtime-self'" 
+          :theme="selectedBank.theme"
+          @submitForm="submitForm"/>
       </div>
     </transition>
   </div>
