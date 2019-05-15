@@ -1,7 +1,7 @@
 <template>
   <ul class="list-group">
     <li v-for="($, index) in menu" class="list-group-item" :key="index" @click="$emit('onClickAction', $.action)">
-      <i class="list-group-icon"></i>
+      <i :style="{borderColor: theme}" class="list-group-icon"></i>
         {{ $.title }}
       <i class="chevron-arrow-right" 
         v-show="$.action !== 'menu' && $.action !== 'balance'"></i>
@@ -15,6 +15,10 @@
     props: {
       menu: {
         type: Array,
+        required: true,
+      },
+      theme: {
+        type: String,
         required: true,
       }
     },

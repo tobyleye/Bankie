@@ -56,7 +56,7 @@
       },
       submitForm() {
         const { amount } = this;
-        const bank = banks.find(bank => bank.name === this.record.bank)
+        const bank = banks.find(bank => bank.name === this.record.bank);
         this.$emit('update:active', false); // close viewrecord modal
         this.$emit('generateCode', {
           amount,

@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <Header>
-      <div slot="header-inner" 
+      <div slot="header-inner" :style="{background: selectedBank.theme}"
         v-if="step != 1 && Object.keys(selectedBank).length" class="intro header-inner">
         <div class="logo-holder">
           <img :src="selectedBankLogo" alt="logo">
@@ -30,9 +30,13 @@
         @viewRecord="viewRecord"/>
     </main>
     <!-- modals -->
-    <RenderCode :active.sync="renderCode" :code="code"/>
+    <RenderCode 
+      :active.sync="renderCode" 
+      :code="code"
+      :theme="selectedBank.theme"/>
     <ViewRecord :active.sync="showRecord" 
-      :record="record" 
+      :record="record"
+      :theme="selectedBank.theme"
       @generateCode="generateCode"
       @deleteRecord="deleteRecord"/>
 
@@ -48,6 +52,10 @@
   import Header from './components/Header.vue';
   import CreateTab from './components/CreateTab.vue';
   import SavedTab from './components/SavedTab.vue';
+
+  const _defaultBank = {
+     theme: '#2b5876', // default theme 
+  }
 
   export default {
     name: 'app',
@@ -66,7 +74,7 @@
       }
     },
     data: () => ({
-      selectedBank: {},
+      selectedBank: _defaultBank,
       savedRecords: localStorage['quick-numbers'] ? JSON.parse(localStorage['quick-numbers']) : [],
       step: 1,
       code: '',
@@ -76,21 +84,29 @@
       showRecord: false,
       record: {},
     }),
+    watch: {
+      selectedBank() {
+        document
+          .querySelector('meta[name="theme-color"]')
+          .setAttribute('content', this.selectedBank.theme)
+      }
+    },
     methods: {
       selectBank(bank) {
         this.selectedBank = bank
       },
       previousStep() {
         this.transition = 'slide-right'
+        if (this.step == 2) this.selectedBank = _defaultBank
         this.step--
-      },
+        },
       nextStep() {
         this.transition = 'slide-left';
         this.step++;
       },
       resetToFirstStep() {
         this.step = 1;
-        this.selectedBank = {}
+        this.selectedBank = _defaultBank;
       },
       showSavedRecords() {
         this.resetToFirstStep() // reset step 

@@ -1,5 +1,5 @@
 <template>
-  <div class="render-code" role="dialog" aria-hidden="true" :class="{'visible': active}">
+  <div class="render-code" role="dialog" aria-hidden="true" :class="{'visible': active}" :style="themeStyle">
     <div class="modal-close" @click="$emit('update:active', false)"></div>
     <div class="modal-content">
       <p>Your code is </p>
@@ -27,7 +27,19 @@
       },
       code: {
         type: String,
-        default: '*123#'
+        required: true,
+      },
+      theme: {
+        type: String,
+        required: true,
+      }
+    },
+    created() {
+      console.log(this.theme);
+    },
+    computed: {
+      themeStyle() {
+        return `color: ${this.theme}`
       }
     },
     methods: {
@@ -51,7 +63,7 @@
     text-align: center;
     font-size: 18px;
     width: 100%;
-    color: #4c8ffb;
+    color: inherit;
     margin: .5em 0 1em;
   }
 
@@ -75,11 +87,12 @@
     width: 100%;
     text-decoration: none;
     outline: 0;
-    border: 1px solid #3079ed;
+    border: 1px solid transparent;
+    border-color: inherit;
     border-radius: 3px;
     font-size: 14px;
     background: none;
-    color: #3079ed;
+    color: inherit;
     text-transform: uppercase;
     padding: .6em 1em;
     cursor: pointer;

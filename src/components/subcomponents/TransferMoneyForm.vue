@@ -36,7 +36,7 @@
     </div>
     
     <div class="submit">
-      <button role="submit" class="button">Generate code</button>
+      <button role="submit" class="button" :style="submitBtnStyle">Generate code</button>
     </div>
   </form>
 </template>
@@ -62,6 +62,10 @@
         const vowels = 'aeiou'
         const char = this.selectedBank.name[0].toLowerCase()
         return vowels.search(char) > -1 ? 'an' : 'a'
+      },
+      submitBtnStyle() {
+        const { theme } = this.selectedBank;
+        return `border-color: ${theme}; color: ${theme}`
       }
     },
     methods: {
