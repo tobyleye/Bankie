@@ -3,7 +3,7 @@
     <div class="modal-close" @click="$emit('update:active', false)"></div>
     <div class="modal-content">
       <p>Your code is </p>
-      <input type="text" class="code" ref="codeInput" :value="code" readonly>
+      <input type="text" class="code" ref="code" :value="code" readonly>
       <div class="row">
         <div class="half">
           <a href="javascript:void(0)" class="button" @click="copyCode">Copy</a>
@@ -34,9 +34,6 @@
         required: true,
       }
     },
-    created() {
-      console.log(this.theme);
-    },
     computed: {
       themeStyle() {
         return `color: ${this.theme}`
@@ -44,13 +41,12 @@
     },
     methods: {
       copyCode(evt) {
-        this.$refs.codeInput.select()
+        this.$refs.code.select()
         document.execCommand("copy");
         evt.target.textContent = 'Copied!';
         setTimeout(() => {
           evt.target.textContent = 'Copy'
         }, 1000);
-       // Todo:  Do some actual copying --
       }
     }
   }
@@ -70,6 +66,10 @@
   .render-code .row {
     padding-top: 1em;
     border-top: 1px solid #f5f5f5;
+  }
+
+  .render-code .modal-content p {
+    color: rgba(0,0,0,.8);
   }
 
   .row {
