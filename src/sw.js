@@ -29,7 +29,7 @@ const LOGOS_TO_CACHE = [
 ]
 
 const SITE_CACHE = {
-  'bankie-static-v4.3': FILES_TO_CACHE,
+  'bankie-static-v4.4': FILES_TO_CACHE,
   'bankie-logos-v1': LOGOS_TO_CACHE
 };
 
