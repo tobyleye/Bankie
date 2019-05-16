@@ -75,7 +75,7 @@
   .row {
     display: flex;
     justify-content: space-between;
-    padding: 0 1em;
+    padding: 0 1.25em;
   }
 
   .row .half {
