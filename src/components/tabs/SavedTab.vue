@@ -23,7 +23,7 @@
 </template>
 
 <script>
-  import banks from '../banks.js';
+  import banks from '@/banks.js';
 
   export default {
     name: 'SavedTab',

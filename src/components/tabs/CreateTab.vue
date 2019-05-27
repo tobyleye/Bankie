@@ -61,7 +61,6 @@
       },
       onClickAction(action) {
         if (action == 'menu' || action == 'balance') {
-          // this actions don't require showing a form.
           return this.$emit('generateCode', {action, bank: this.selectedBank});
         }
 

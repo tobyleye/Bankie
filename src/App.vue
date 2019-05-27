@@ -46,12 +46,12 @@
 </template>
 
 <script>
-  import RenderCode from './components/subcomponents/RenderCode.vue';
-  import ViewRecord from './components/subcomponents/ViewRecord.vue';
-  import InstallPrompt from './components/subcomponents/InstallPrompt';
-  import Header from './components/Header.vue';
-  import CreateTab from './components/CreateTab.vue';
-  import SavedTab from './components/SavedTab.vue';
+  import RenderCode from '@/components/subcomponents/RenderCode.vue';
+  import ViewRecord from '@/components/subcomponents/ViewRecord.vue';
+  import InstallPrompt from '@/components/subcomponents/InstallPrompt';
+  import Header from '@/components/subcomponents/Header.vue';
+  import CreateTab from '@/components/tabs/CreateTab.vue';
+  import SavedTab from '@/components/tabs/SavedTab.vue';
 
   const _defaultBank = {
      theme: '#2b5876', // default theme 
