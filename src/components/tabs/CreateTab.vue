@@ -37,7 +37,7 @@
         type: Number,
         default: 1,
       },
-      transition:{
+      transition: {
         type: String,
         required: true,
       }
@@ -61,6 +61,7 @@
       },
       onClickAction(action) {
         if (action == 'menu' || action == 'balance') {
+          // generate code - doesn't require any form.
           return this.$emit('generateCode', {action, bank: this.selectedBank});
         }
 
