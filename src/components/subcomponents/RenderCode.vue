@@ -1,5 +1,5 @@
 <template>
-  <div class="render-code" role="dialog" aria-hidden="true" :class="{'visible': active}" :style="themeStyle">
+  <div class="render-code" role="dialog" :class="{'visible': active}" :style="themeStyle">
     <div class="modal-close" @click="$emit('update:active', false)"></div>
     <div class="modal-content">
       <p>Your code is </p>

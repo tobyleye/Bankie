@@ -10,7 +10,7 @@
       <nav class="nav" slot="nav">
         <div class="nav-inner">
           <div v-if="step == 1" class="tab" @click="currentTab = 'create'">Create</div>
-          <div v-if="step > 1" class="tab-back tab" @click="previousStep">
+          <div v-if="step > 1" class="tab" @click="previousStep">
             <i class="chevron-arrow-left"></i>
             Back</div>
           <div class="tab" @click="showSavedRecords">Saved</div>
