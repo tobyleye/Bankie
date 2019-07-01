@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    
     <Header>
       <div slot="header-inner" :style="{background: selectedBank.theme}"
         v-if="step != 1 && Object.keys(selectedBank).length" class="intro header-inner">
@@ -7,33 +8,69 @@
           <img :src="selectedBankLogo" alt="logo">
         </div>
       </div>
+
       <nav class="nav" slot="nav">
         <div class="nav-inner">
-          <div v-if="step == 1" class="tab" @click="currentTab = 'create'">Create</div>
-          <div v-if="step > 1" class="tab" @click="previousStep">
-            <i class="chevron-arrow-left"></i>
-            Back</div>
-          <div class="tab" @click="showSavedRecords">Saved</div>
+
+          <div 
+            v-if="step == 1" 
+            class="tab" 
+            @click="currentTab='create'; showSearchToggle = false;"
+            >Create
+          </div>
+
+          <div 
+            v-if="step > 1" 
+            class="tab" 
+            @click="previousStep">
+              <i class="chevron-arrow-left"></i>
+            Back
+          </div>
+
+          <div
+            v-if="currentTab === 'create' || !showSearchToggle || !savedRecords.length" 
+            class="tab" 
+            @click="showSavedRecords">
+            Saved
+          </div>
+
+          <div 
+            v-if="currentTab === 'saved' && showSearchToggle && savedRecords.length" 
+            class="tab" 
+            @click="showSearchForm = !showSearchForm">🔍
+          </div>
+
           <div :class="['nav-indicator', currentTab]"></div>
         </div>
       </nav>
+
     </Header>
+
     <main class="main-wireframe">
-      <CreateTab v-if="currentTab == 'create'"
+      
+      <CreateTab 
+        v-if="currentTab == 'create'"
         :transition="transition" 
         :step="step" 
         @nextStep="nextStep" 
         @onSelectBank="selectBank" 
-        @generateCode="generateCode"/>
-      <SavedTab v-else 
+        @generateCode="generateCode"
+      />
+      
+      <SavedTab 
+        v-else
+        :showSearchForm="showSearchForm" 
         :savedRecords="savedRecords" 
-        @viewRecord="viewRecord"/>
+        @viewRecord="viewRecord"
+      />
+    
     </main>
-    <!-- modals -->
+    
     <RenderCode 
       :active.sync="renderCode" 
       :code="code"
       :theme="selectedBank.theme"/>
+
     <ViewRecord :active.sync="showRecord" 
       :record="record"
       :theme="selectedBank.theme"
@@ -42,6 +79,7 @@
 
     <!-- Install Pprompt -->
     <InstallPrompt/>
+    
   </div>
 </template>
 
@@ -83,6 +121,8 @@
       currentTab: 'create', // default tab
       showRecord: false,
       record: {},
+      showSearchForm: false, // show search form in saved tab
+      showSearchToggle: false // show search toggle
     }),
     watch: {
       selectedBank() {
@@ -109,6 +149,7 @@
         this.selectedBank = _defaultBank;
       },
       showSavedRecords() {
+        this.showSearchToggle = this.savedRecords.length > 0;
         this.resetToFirstStep() // reset step 
         this.currentTab = 'saved';
       },
