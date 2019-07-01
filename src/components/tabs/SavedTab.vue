@@ -26,7 +26,7 @@
     <ul
       v-if="filteredRecords.length" 
       class="record-list">
-        <transition-group name="list">
+        <transition-group>
           <li 
             v-for="record in filteredRecords" 
             :key="record.id"
