@@ -1,10 +1,14 @@
 <template>
   <ul class="list-group">
-    <li v-for="(bank, index) in banks"
+    <li 
+      v-for="(bank, index) in banks"
       :key="index"
       @click="$emit('onSelectBank', bank)"
       class="bank-item list-group-item">
-        <img :src="getLogoPath(bank.logo)" alt="logo">
+        <img 
+          :src="getLogoPath(bank.logo)" 
+          alt="logo"
+        >
         {{ bank.shortName || bank.name }}
         <i class="chevron-arrow-right"></i>
     </li>
@@ -18,9 +22,11 @@
 
   export default {
     name: 'BankList',
+
     data: () => ({
       banks
     }),
+
     methods: {
       getLogoPath(logo) {
         return `/static/logos/${logo}`

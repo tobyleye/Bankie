@@ -20,6 +20,7 @@
 
   export default {
     name: 'RenderCode',
+
     props: {
       active: {
         type: Boolean,
@@ -34,11 +35,13 @@
         required: true,
       }
     },
+
     computed: {
       themeStyle() {
         return `color: ${this.theme}`
       }
     },
+    
     methods: {
       copyCode(evt) {
         this.$refs.code.select()

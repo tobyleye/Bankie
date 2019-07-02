@@ -16,6 +16,7 @@
     data: () => ({
       showInstallBanner: false
     }),
+    
     created() {
       window.addEventListener('beforeinstallprompt', event => {
         event.preventDefault();
@@ -23,6 +24,7 @@
         installEvent = event;
       });
     },
+
     methods: {
       showA2HSPrompt() {
         this.showInstallBanner = false;

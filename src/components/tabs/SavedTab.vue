@@ -73,10 +73,12 @@
         required: true,
       }
     },
+
     data: () => ({
       searchText: '',
       showSearchInput: true
     }),
+
     computed: {
       filteredRecords() {
         if (this.showSearchInput && this.searchText) {
@@ -88,6 +90,7 @@
         }
       }
     },
+
     methods: {
       getBankLogo(bankName) {
         const logo = banks.find(bank => bank.name === bankName).logo
@@ -100,6 +103,7 @@
         return `border-color: ${color}; color: ${color}`
       }
     }
+    
   }
 </script>
 

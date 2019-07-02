@@ -97,6 +97,7 @@
 
   export default {
     name: 'app',
+
     components: {
       Header,
       CreateTab,
@@ -105,6 +106,7 @@
       ViewRecord,
       InstallPrompt,
     },
+
     computed: {
       selectedBankLogo() {
         return `/static/logos/${this.selectedBank.logo}`
@@ -124,6 +126,7 @@
       showSearchForm: false, // show search form in saved tab
       showSearchToggle: false // show search toggle
     }),
+
     watch: {
       selectedBank() {
         document
@@ -131,6 +134,7 @@
           .setAttribute('content', this.selectedBank.theme)
       }
     },
+    
     methods: {
       selectBank(bank) {
         this.selectedBank = bank

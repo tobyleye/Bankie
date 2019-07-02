@@ -1,6 +1,10 @@
 <template>
   <ul class="list-group">
-    <li v-for="($, index) in menu" class="list-group-item" :key="index" @click="$emit('onClickAction', $.action)">
+    <li 
+      v-for="($, index) in menu" 
+      class="list-group-item" 
+      :key="index" 
+      @click="$emit('onClickAction', $.action)">
       <i :style="{borderColor: theme}" class="list-group-icon"></i>
         {{ $.title }}
       <i class="chevron-arrow-right" 
@@ -22,6 +26,7 @@
         required: true,
       }
     },
+
     methods: {
       onClick($) {
         switch($) {
@@ -43,6 +48,7 @@
         }  
       }
     }
+    
   }
 </script>
 

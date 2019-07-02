@@ -46,6 +46,7 @@
       formToShow: '',
       selectedBank:{},
     }),
+    
     components: {
       BankList,
       TransactionMenu,
@@ -53,6 +54,7 @@
       PurchaseAirtimeForm,
       TransferMoneyForm
     },
+
     methods: {
       onSelectBank(evt) {
         this.$emit('onSelectBank', evt);

@@ -4,8 +4,16 @@
     <div class="modal-content">
       <p>How much do you want to send to {{ record.name}} ({{ record.number}})</p>
       <form @submit.prevent="submitForm">
+        
         <div class="form-group">
-          <input type="number" v-model="amount" min="50" placeholder="1000" class="form-control" required>
+          <input 
+            type="number" 
+            v-model="amount"
+            min="50" 
+            placeholder="1000" 
+            class="form-control" 
+            required
+          >
           <div class="pills">
             <span class="pill"
               v-for="amt in amountList"
@@ -15,11 +23,16 @@
             </span>
           </div>
         </div>
+        
         <div class="submit">
           <button role="submit" class="button">Generate code</button>
         </div>
+        
       </form>
-      <button class="delete-record" @click="$emit('deleteRecord', record.id)"><span>&times;</span>Delete this number</button>
+      <button 
+        class="delete-record" 
+        @click="$emit('deleteRecord', record.id)"><span>&times;</span>Delete this number
+      </button>
     </div>
   </div>
 </template>
