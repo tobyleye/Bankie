@@ -16,14 +16,14 @@
           >
           <div class="pills">
             <span class="pill"
-              v-for="amt in amountList"
+              v-for="amt in suggestedAmounts"
               :key="amt"
               @click="amount = amt">
-              &#8358;{{ amt.toLocaleString() }}
+              {{ amt | naira }}
             </span>
           </div>
         </div>
-        
+
         <div class="submit">
           <button role="submit" class="button">Generate code</button>
         </div>
@@ -56,10 +56,15 @@
       }
     },
     computed: {
-      amountList() {
+      suggestedAmounts() {
         if (this.record.type == 'phone') 
           return [100, 200, 500, 1000, 2000, 5000 ] 
         return [500, 1000, 2000, 5000, 10000, 20000]
+      }
+    },
+    filters: {
+      naira(value) {
+        return `₦${value.toLocaleString()}`
       }
     },
     methods: {
@@ -71,11 +76,15 @@
         const { amount } = this;
         const bank = banks.find(bank => bank.name === this.record.bank);
         this.$emit('update:active', false); // close viewrecord modal
-        this.$emit('generateCode', {
-          amount,
-          ...this.record,
-          bank,
-        });
+        // wait before code is rendered
+        setTimeout(() => {
+          this.$emit('generateCode', {
+            amount,
+            ...this.record,
+            bank,
+          });
+        }, 350)
+        
         this.amount = '';
       }
     }

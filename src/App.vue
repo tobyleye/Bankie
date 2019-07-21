@@ -1,17 +1,20 @@
 <template>
   <div id="app">
     
-    <Header>
-      <div slot="header-inner" :style="{background: selectedBank.theme}"
-        v-if="step != 1 && Object.keys(selectedBank).length" class="intro header-inner">
+    <app-header>
+      <div 
+        slot="header-inner" 
+        class="header-inner" 
+        :style="{background: selectedBank.theme}"
+        v-if="step > 1">
+
         <div class="logo-holder">
           <img :src="selectedBankLogo" alt="logo">
         </div>
       </div>
 
-      <nav class="nav" slot="nav">
+      <nav slot="nav" class="nav">
         <div class="nav-inner">
-
           <div 
             v-if="step == 1" 
             class="tab" 
@@ -44,11 +47,10 @@
         </div>
       </nav>
 
-    </Header>
+    </app-header>
 
     <main class="main-wireframe">
-      
-      <CreateTab 
+      <create-tab 
         v-if="currentTab == 'create'"
         :transition="transition" 
         :step="step" 
@@ -57,7 +59,7 @@
         @generateCode="generateCode"
       />
       
-      <SavedTab 
+      <saved-tab 
         v-else
         :showSearchForm="showSearchForm" 
         :savedRecords="savedRecords" 
@@ -66,19 +68,19 @@
     
     </main>
     
-    <RenderCode 
+    <render-code 
       :active.sync="renderCode" 
       :code="code"
-      :theme="selectedBank.theme"/>
+      :theme="theme"/>
 
-    <ViewRecord :active.sync="showRecord" 
+    <view-record 
+      :active.sync="showRecord" 
       :record="record"
-      :theme="selectedBank.theme"
       @generateCode="generateCode"
       @deleteRecord="deleteRecord"/>
 
     <!-- Install Pprompt -->
-    <InstallPrompt/>
+    <install-prompt/>
     
   </div>
 </template>
@@ -87,19 +89,18 @@
   import RenderCode from '@/components/subcomponents/RenderCode.vue';
   import ViewRecord from '@/components/subcomponents/ViewRecord.vue';
   import InstallPrompt from '@/components/subcomponents/InstallPrompt';
-  import Header from '@/components/subcomponents/Header.vue';
+  import AppHeader from '@/components/subcomponents/AppHeader.vue';
   import CreateTab from '@/components/tabs/CreateTab.vue';
   import SavedTab from '@/components/tabs/SavedTab.vue';
 
-  const _defaultBank = {
-     theme: '#2b5876', // default theme 
-  }
+  const _defaultTheme = '#2b5876'
+ 
 
   export default {
     name: 'app',
 
     components: {
-      Header,
+      AppHeader,
       CreateTab,
       SavedTab,
       RenderCode,
@@ -110,11 +111,10 @@
     computed: {
       selectedBankLogo() {
         return `/static/logos/${this.selectedBank.logo}`
-        
       }
     },
     data: () => ({
-      selectedBank: _defaultBank,
+      selectedBank: null,
       savedRecords: localStorage['quick-numbers'] ? JSON.parse(localStorage['quick-numbers']) : [],
       step: 1,
       code: '',
@@ -124,33 +124,37 @@
       showRecord: false,
       record: {},
       showSearchForm: false, // show search form in saved tab
-      showSearchToggle: false // show search toggle
+      showSearchToggle: false, // show search toggle
+      theme: _defaultTheme
     }),
 
     watch: {
-      selectedBank() {
+      theme() {
         document
           .querySelector('meta[name="theme-color"]')
-          .setAttribute('content', this.selectedBank.theme)
+          .setAttribute('content', this.theme);
       }
     },
     
     methods: {
       selectBank(bank) {
-        this.selectedBank = bank
+        this.selectedBank = bank;
+        this.theme = this.selectedBank.theme;
       },
       previousStep() {
         this.transition = 'slide-right'
-        if (this.step == 2) this.selectedBank = _defaultBank
-        this.step--
-        },
+        this.step == 2 
+          ? this.resetToFirstStep()
+          : this.step--
+      },
       nextStep() {
         this.transition = 'slide-left';
         this.step++;
       },
       resetToFirstStep() {
         this.step = 1;
-        this.selectedBank = _defaultBank;
+        this.theme = _defaultTheme;
+        this.selectedBank = null;
       },
       showSavedRecords() {
         this.showSearchToggle = this.savedRecords.length > 0;

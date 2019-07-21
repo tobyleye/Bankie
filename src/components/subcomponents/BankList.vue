@@ -13,7 +13,7 @@
         <i class="chevron-arrow-right"></i>
     </li>
     <!-- credit -->
-    <li class="credit">Built with 💗 by <a target="_blank" href="https://twitter.com/ibenddrules">Toby</a></li>
+    <li class="credit">Built with 💗 & 🍵 by <a target="_blank" href="https://twitter.com/ibenddrules">Toby</a></li>
   </ul>
 </template>
 
@@ -37,20 +37,22 @@
 
 <style>
   .bank-item {
-    padding: 1.5em 1.6em !important;
+    padding: 1.5rem 1.6rem !important;
   }  
+</style> 
 
+<style scoped>
   .credit {
     text-align: center;
-    font-size: 14px;
+    font-size: 12px;
     text-transform: none;
-    padding: 2em 1.6em;
+    padding: 1rem;
     background: #fbfbfb;
   }
 
   .credit a {
-    text-decoration: underline;
     color: #607D8B;
     font-weight: 500;
+    text-decoration: none;
   }
 </style>
