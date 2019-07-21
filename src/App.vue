@@ -5,7 +5,7 @@
       <div 
         slot="header-inner" 
         class="header-inner" 
-        :style="{background: selectedBank.theme}"
+        :style="{background: theme}"
         v-if="step > 1">
 
         <div class="logo-holder">

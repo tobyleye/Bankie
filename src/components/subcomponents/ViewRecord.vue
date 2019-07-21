@@ -1,5 +1,5 @@
 <template>
-  <div class="view-record" role="dialog" :class="{'visible': active}">
+  <div role="dialog" :class="['view-record', {'visible': active}]">
     <div class="modal-close" @click="close"></div>
     <div class="modal-content">
       <p>How much do you want to send to {{ record.name}} ({{ record.number}})</p>
