@@ -69,8 +69,8 @@
     },
     methods: {
       close() {
-        this.$emit('update:active', false)
         this.amount = '';
+        this.$emit('update:active', false)
       },
       submitForm() {
         const { amount } = this;
