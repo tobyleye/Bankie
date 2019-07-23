@@ -177,9 +177,7 @@
       },
       generateCode(formDetails) {
         const { action, bank } = formDetails;
-        // set theme
-        this.theme = bank.theme;
-
+        
         let code, amount, number, saveRecord, recordName, isSameBank;
         switch(action) {
           case 'menu': 
