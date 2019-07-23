@@ -287,7 +287,7 @@ html {
   position: fixed;
   top: 0;
   left: 0;
-  bottom: -2px;
+  bottom: -5px;
   width: 100%;
   z-index: 1;
   pointer-events: none;

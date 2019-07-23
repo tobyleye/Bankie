@@ -74,7 +74,7 @@
       :theme="theme"/>
 
     <view-record 
-      :active.sync="showRecord" 
+      :active.sync="showRecord"
       :record="record"
       @generateCode="generateCode"
       @deleteRecord="deleteRecord"/>
@@ -177,6 +177,9 @@
       },
       generateCode(formDetails) {
         const { action, bank } = formDetails;
+        // set theme
+        this.theme = bank.theme;
+
         let code, amount, number, saveRecord, recordName, isSameBank;
         switch(action) {
           case 'menu': 
@@ -238,7 +241,7 @@
         this.savedRecords = this.savedRecords.filter(record => record.id !== id)
         localStorage.setItem('quick-numbers', JSON.stringify(this.savedRecords));
         
-        this.record = {};
+        this.record = null;
         this.showRecord = false;
       }
     }
