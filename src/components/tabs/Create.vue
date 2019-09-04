@@ -1,5 +1,5 @@
 <template>
-  <div id="create">
+  <div id="create" role="tabpanel">
     <transition :name="create_transition">
       <bank-list
         v-if="step == 1" 

@@ -7,8 +7,8 @@
     <div v-else class="logo_holder">
       <img :src="'/static/logos/' + selectedBank.logo" alt="logo"/>
     </div>
-    <nav class="header_toggles">
-      <a href="#" v-if="step > 1" @click.prevent="previousStep" class="header_toggle active" role="tab">
+    <nav class="header_toggles" role="tablist">
+      <a href="#" v-if="step > 1" @click.prevent="previousStep" class="header_toggle active">
         <i style="margin-right: 20px;" class="material-icons sm">arrow_back</i>
         Back
       </a>

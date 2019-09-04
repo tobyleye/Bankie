@@ -1,5 +1,5 @@
 <template>
-  <div id="saved">
+  <div id="saved" role="tabpanel">
     <div class="content">
       <div v-if="this.savedRecords.length == 0" class="empty">
         <span role="img">😿</span>
