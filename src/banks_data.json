@@ -1,0 +1,221 @@
+[
+  {
+    "id": 1,
+    "name": "Access Bank",
+    "logo": "Access Bank PLC Logo.svg",
+    "theme": "#ee7e01",
+    "transaction_menu": ["transfer money", "send airtime", "purchase airtime", "check account balance", "main menu"],
+    "codes": {
+      "menu": "*901#",
+      "balance": "*901*5#",
+      "transfer-self": "*901*1*{{amount}}*{{number}}#",
+      "transfer-others": "*901*2*{{amount}}*{{number}}#",
+      "airtime-self": "*901*{{amount}}#",
+      "airtime-others": "*901*{{amount}}*{{number}}#"
+    }
+  },
+  {
+    "id": 2,
+    "name": "Ecobank",
+    "logo": "Ecobank Logo.svg",
+    "theme": "#023448",
+    "transaction_menu": ["purchase airtime", "main menu"],
+    "codes": {
+      "menu": "*326#",
+      "airtime-self": "*326*{{amount}}#"
+    }
+  },
+  {
+    "id": 3,
+    "name": "Fidelity Bank",
+    "logo": "Fidelity Bank Nigeria Logo.svg",
+    "theme": "#0e237e",
+    "transaction_menu": ["transfer money", "send airtime", "purchase airtime", "check account balance", "main menu"],
+    "codes": {
+      "menu": "*770#",
+      "balance": "*770*0#",
+      "transfer-self": "*770*{{number}}*{{amount}}#",
+      "transfer-others": "*770*{{number}}*{{amount}}#",
+      "airtime-self": "*770*{{amount}}#",
+      "airtime-others": "*770*{{number}}*{{amount}}#"
+    }
+  },
+  {
+    "id": 4,
+    "name": "First Bank",
+    "logo": "First Bank Nigeria Logo.svg",
+    "theme": "#022e64",
+    "transaction_menu": ["transfer money", "send airtime", "purchase airtime", "check account balance", "main menu"],
+    "codes": {
+      "menu": "*894#",
+      "balance": "*894*00#",
+      "transfer-self": "*894*{{amount}}*{{number}}#",
+      "transfer-others": "*894*{{amount}}*{{number}}#",
+      "airtime-self": "*894*{{amount}}#",
+      "airtime-others": "*894*{{amount}}*{{number}}#"
+    }
+  },
+  {
+    "id": 5,
+    "name": "First City Monument Bank",
+    "alias": "FCMB",
+    "theme": "#5c2684",
+    "logo": "First City Monument Bank Ltd Logo.svg",
+    "transaction_menu": ["transfer money", "send airtime", "purchase airtime", "check account balance", "main menu"],
+    "codes": {
+      "menu": "*329#",
+      "balance": "*329*00#",
+      "transfer-self": "*329*{{amount}}*{{number}}#",
+      "transfer-others": "*329*{{amount}}*{{number}}#",
+      "airtime-self": "*329*{{amount}}#",
+      "airtime-others": "*329*{{amount}}*{{number}}#"
+    }
+  },
+  {
+    "id": 6,
+    "name": "Guaranty Trust Bank",
+    "alias": "GTBank",
+    "logo": "Guaranty Trust Bank Logo.svg",
+    "theme": "#dd4f05",
+    "transaction_menu": ["transfer money", "send airtime", "purchase airtime", "check account balance", "main menu"],
+    "codes": {
+      "menu": "*737#",
+      "balance": "*737*6*1#",
+      "transfer-self": "*737*1*{{amount}}*{{number}}#",
+      "transfer-others": "*737*2*{{amount}}*{{number}}#",
+      "airtime-self": "*737*{{amount}}#",
+      "airtime-others": "*737*{{amount}}*{{number}}#"
+    }
+  },
+  {
+    "id": 7,
+    "name": "Heritage Bank",
+    "logo": "Heritage Bank PLC Logo.svg",
+    "theme": "#4FC143",
+    "transaction_menu": ["transfer money", "send airtime", "purchase airtime", "check account balance", "main menu"],
+    "codes": {
+      "menu": "*322*030#",
+      "balance": "*322*030#",
+      "transfer-self": "*322*030*{{number}}*{{amount}}#",
+      "transfer-others": "*322*030*{{number}}*{{amount}}#",
+      "airtime-self": "*322*030*{{amount}}#",
+      "airtime-others": "*322*030*{{number}}*{{amount}}#"
+    }
+  },
+  {
+    "id": 8,
+    "name": "Keystone Bank",
+    "logo": "Keystone Bank Limited Logo.svg",
+    "theme": "#102b5b",
+    "transaction_menu": ["transfer money", "send airtime", "purchase airtime", "check account balance", "main menu"],
+    "codes": {
+      "menu": "*7111#",
+      "balance": "*7111*1#",
+      "transfer-self": "7111*{{amount}}*{{number}}#",
+      "transfer-others": "7111*{{amount}}*{{number}}#",
+      "airtime-self": "*7111*{{amount}}#",
+      "airtime-others": "7111*{{amount}}*{{number}}#"
+    }
+  },
+  {
+    "id": 9,
+    "name": "Polaris Bank",
+    "logo": "Polaris Bank Logo.svg",
+    "theme": "#781596",
+    "transaction_menu": ["transfer money", "send airtime", "purchase airtime", "check account balance", "main menu"],
+    "codes": {
+      "menu": "*833#",
+      "balance": "*833*6#",
+      "transfer-self": "*833*{{amount}}*{{number}}#",
+      "transfer-others": "*833*{{amount}}*{{number}}#",
+      "airtime-self": "*833*{{amount}}#",
+      "airtime-others": "*833*{{amount}}*{{number}}#"
+    }
+  },
+  {
+    "id": 10,
+    "name": "Stanbic IBTC Bank",
+    "logo": "Stanbic IBTC Bank Logo.svg",
+    "theme": "#0d3692",
+    "transaction_menu": ["purchase airtime", "main menu"],
+    "codes": {
+      "menu": "*909#",
+      "airtime-self": "*909*{{amount}}#"
+    }
+  },
+  {
+    "id": 11,
+    "name": "Sterling Bank",
+    "logo": "Sterling Bank Plc Logo.svg",
+    "theme": "#d92028",
+    "transaction_menu": ["transfer money", "send airtime", "purchase airtime", "check account balance", "main menu"],
+    "codes": {
+      "menu": "*822#",
+      "balance": "*822*6#",
+      "transfer-self": "*822*4*{{number}}*{{amount}}#",
+      "transfer-others": "*822*5*{{number}}*{{amount}}#",
+      "airtime-self": "*822*{{amount}}#",
+      "airtime-others": "*822*{{amount}}*{{number}}#"
+    }
+  },
+  {
+    "id": 12,
+    "name": "Union Bank",
+    "logo": "Union Bank Nigeria Logo.svg",
+    "theme": "#00adef",
+    "transaction_menu": ["transfer money", "send airtime", "purchase airtime", "check account balance", "main menu"],
+    "codes": {
+      "menu": "*826#",
+      "balance": "*826#",
+      "transfer-self": "*826*1*{{amount}}*{{number}}#",
+      "transfer-others": "*826*2*{{amount}}*{{number}}#",
+      "airtime-self": "*826*{{amount}}#",
+      "airtime-others": "*826*{{amount}}*{{number}}#"
+    }
+  },
+  {
+    "id": 13,
+    "name": "UBA",
+    "logo": "UBA Logo.svg",
+    "theme": "#d70900",
+    "transaction_menu": ["transfer money", "send airtime", "purchase airtime", "check account balance", "main menu"],
+    "codes": {
+      "menu": "*919#",
+      "balance": "*919*00#",
+      "transfer-self": "*919*3*{{number}}*{{amount}}#",
+      "transfer-others": "*919*4*{{number}}*{{amount}}#",
+      "airtime-self": "*919*{{amount}}#",
+      "airtime-others": "*919*{{number}}*{{amount}}#"
+    }
+  },
+  {
+    "id": 14,
+    "name": "Wema Bank",
+    "logo": "Wema Bank Logo.svg",
+    "theme": "#922791",
+    "transaction_menu": ["transfer money", "send airtime", "purchase airtime", "check account balance", "main menu"],
+    "codes": {
+      "menu": "*945#",
+      "balance": "*945*0#",
+      "transfer-self": "*945*{{number}}*{{amount}}#",
+      "transfer-others": "*945*{{number}}*{{amount}}#",
+      "airtime-self": "*945*{{amount}}#",
+      "airtime-others": "*945*{{number}}*{{amount}}#"
+    }
+  },
+  {
+    "id": 15,
+    "name": "Zenith Bank",
+    "logo": "Zenith Bank Logo.svg",
+    "theme": "#e3000f",
+    "transaction_menu": ["transfer money", "send airtime", "purchase airtime", "check account balance", "main menu"],
+    "codes": {
+      "menu": "*966#",
+      "balance": "*966*00#",
+      "transfer-self": "*966*{{amount}}*{{number}}#",
+      "transfer-others": "*966*{{amount}}*{{number}}#",
+      "airtime-self": "*966*{{amount}}#",
+      "airtime-others": "*966*{{amount}}*{{number}}#"
+    }
+  }
+]

@@ -1,10 +1,10 @@
 <template>
-  <div class="install-prompt" v-if="showInstallBanner == true">
+  <div class="install-prompt" v-if="showInstallBanner">
     <div style="display: flex;">
       <img src="/static/icons/icon-20.png" alt="" style="margin-right: 4px;">
-      <a href="javascript:void(0)" class="install" @click="showA2HSPrompt">Install Bankie on your device</a>
+      <a href="#" class="install" @click.prevent="showA2HSPrompt">Install Bankie on your device</a>
     </div>
-    <a href="javascript:void(0)" class="close" @click="showInstallBanner = false">No, Thanks</a>
+    <a href="#" class="close" @click.prevent="showInstallBanner = false">No, Thanks</a>
   </div>
 </template>
 
@@ -34,11 +34,8 @@
 
       handleA2HSResponse(choiceResult) {
         if (choiceResult.outcome == 'accepted') {
-          console.log('User accepted');
           // close custom prompt 
           this.showInstallBanner = false;
-        } else { 
-          console.log('User dismissed it');
         }
       }
     }
@@ -53,7 +50,7 @@
     width: 100%;
     padding: 1em;
     font-size: 14px;
-    box-shadow: 0px -2px 5px rgba(0,0,0,.2);
+    /*box-shadow: 0px -2px 5px rgba(0,0,0,.2);*/
     display: flex;
     background: #49555a;
     justify-content: space-between;

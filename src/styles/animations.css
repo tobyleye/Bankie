@@ -1,0 +1,32 @@
+html {
+  --base-speed: 300ms;
+}
+
+.slide-left-enter-active, 
+.slide-left-leave-active,
+.slide-right-enter-active,
+.slide-right-leave-active {
+  transition: all var(--base-speed) ease-in-out;
+}
+
+.slide-left-enter,
+.slide-right-leave-to {
+  transform: translate3d(100%, 0, 0);
+}
+
+.slide-left-leave-to,
+.slide-right-enter {
+  transform: translate3d(-100%, 0, 0);
+}
+
+@keyframes moon-slide {
+  from {
+    opacity: 0; 
+    transform: translate3d(-30px, 0, 0); 
+  }
+  
+  to { 
+    opacity: 1;
+    transform: translate3d(0px, 0, 0);
+  }
+}

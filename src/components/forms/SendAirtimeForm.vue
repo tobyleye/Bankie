@@ -1,13 +1,13 @@
 <template>
-  <form id="send-airtime" @submit.prevent="submitForm">
+  <form id="send-airtime" @submit.prevent="submit">
     
     <div class="form-group">
       <label for="phone-number">phone number</label>
       <input 
-        v-model="number" 
+        v-model="formData.number" 
         type="number" 
         id="phone-number" 
-        class="form-control" 
+        class="form-input" 
         min="50" 
         placeholder="08012345678" 
         required
@@ -17,10 +17,10 @@
     <div class="form-group">
       <label for="amount-to-send">amount to send</label>
       <input 
-        v-model="amount" 
+        v-model="formData.amount" 
         type="number" 
         id="amount-to-send" 
-        class="form-control" 
+        class="form-input" 
         min="0" 
         placeholder="1000" 
         required
@@ -29,7 +29,7 @@
         <span class="pill"
           v-for="amt in [100, 200, 500, 1000, 2000, 5000]"
           :key="amt"
-          @click="amount = amt">
+          @click="formData.amount = amt">
             &#8358;{{ amt.toLocaleString() }}
         </span>
       </div>
@@ -39,7 +39,7 @@
       <div class="switch-label">Save phone number?</div>
       <div class="onoffswitch">
         <input 
-          v-model="saveRecord" 
+          v-model="formData.saveRecord" 
           type="checkbox" 
           class="onoffswitch-checkbox" 
           id="save-phone"
@@ -48,63 +48,42 @@
       </div>
     </div>
 
-    <div class="form-group" v-show="saveRecord">
+    <div class="form-group" v-show="formData.saveRecord">
       <label for="record-name">Name to save as</label>
       <input 
         type="text" 
-        v-model="recordName" 
+        v-model="formData.recordName" 
         placeholder="Jane's Airtel" 
-        class="form-control" 
+        class="form-input" 
         id="record-name" 
-        :required="saveRecord"
+        :required="formData.saveRecord"
       >
     </div>
 
     <div class="submit">
-      <button 
-        :style="submitBtnStyle" 
-        role="submit" 
-        class="button">generate code
-      </button>
+      <button type="submit" class="button">generate code</button>
     </div>
   </form>
 </template>
 
 <script>
+
   export default {
     name: 'SendAirtimeForm',
-    props: {
-      theme: {
-        type: String,
-        required: true,
-      }
-    },
 
     data: () => ({
-      number: '',
-      amount: '',
-      recordName: '',
-      saveRecord: false 
+      formData: {
+        number: '',
+        amount: '',
+        recordName: '',
+        saveRecord: false 
+      }
     }),
 
-    computed: {
-      submitBtnStyle() {
-        return `border-color: ${this.theme}; color: ${this.theme}`;
-      }
-    },
-
     methods: {
-      submitForm() {
-        const { number, amount, saveRecord, recordName } = this;
-        this.$emit('submitForm', {
-          number,
-          amount,
-          saveRecord,
-          recordName,
-          action: 'airtime-others',
-        });
+      submit() {
+        this.$emit('submit-form', this.formData)
       }
     }
-    
   }
 </script>

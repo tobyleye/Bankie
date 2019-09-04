@@ -1,15 +1,11 @@
 import Vue from 'vue'
 import App from '@/App.vue'
-import runtime from 'serviceworker-webpack-plugin/lib/runtime'
+import store from './store';
+import './registerServiceWorker'
 
 Vue.config.productionTip = false
 
 new Vue({
+  store,
   render: h => h(App),
 }).$mount('#app')
-
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
-    runtime.register();
-  })
-}

@@ -1,0 +1,97 @@
+/* form stuffs */
+.form-group {
+  padding: 1.2rem 1.6rem;
+  border-bottom: 1px solid #f9f9f9;
+ }
+
+.form-group label {
+  display: block;
+  text-transform: uppercase;
+  margin-bottom: 3px;
+  font-size: 1.2rem;
+  color: #666
+}
+
+.form-input {
+  border: 0;
+  display: block;
+  font: inherit;
+  font-size: 1.4rem;
+  padding: 1rem 0;
+  outline: 0;
+  width: 100%;
+  color: inherit;
+}
+
+.form-input::placeholder {
+  color: #999
+}
+
+.form-input:focus {
+  background: #fcfcfc;
+}
+
+.switch-group {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.switch-label {
+  font-size: 1.4rem;
+}
+
+.onoffswitch-checkbox {
+  display: none;
+}
+
+.onoffswitch-label {
+  display: block;
+  width: 40px;
+  height: 20px;
+  border-radius: 20px;
+  position: relative;
+  transition: 0.1s ease-in-out;
+  background: #d1d1d1;
+  cursor: pointer;
+  margin: 0 !important;
+}
+
+.onoffswitch-checkbox:checked + .onoffswitch-label::after {
+  transform: translate3d(100%, 0, 0);
+}
+
+.onoffswitch-checkbox:checked + label {  
+  background: var(--theme)
+}
+
+.onoffswitch-label::after {
+  content: '';
+  display: block;
+  width: 20px;
+  height: 20px;
+  border-radius: 20px;
+  box-shadow: 0px 1px 3px rgba(0,0,0, 0.35);
+  background: white;
+  transition: 0.1s ease-in-out;
+}
+
+.submit {
+  padding: 1.4rem;
+  margin-bottom: 2rem;
+}
+
+.button {
+  outline: 0;
+  border: 1px solid var(--theme);
+  background: #fff;
+  color: var(--theme);
+  display: block;
+  padding: 1rem;
+  border-radius: 20rem;
+  width: 100%;
+  font: inherit;
+  font-size: 1.4rem;
+  cursor: pointer;
+  text-transform: uppercase;
+}

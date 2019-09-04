@@ -1,0 +1,28 @@
+.list-group {
+  list-style: none;
+}
+
+.list-group-item {
+  display: flex;
+  align-items: center;
+  padding: 3rem 2rem;
+  cursor: pointer;
+  font-size: 1.3rem;
+  text-transform: uppercase;
+  border-bottom: 1px solid #f5f5f5;
+}
+
+.list-group-item:hover {
+  background: #f9f9f9;
+}
+
+.list-group-next {
+  color: #999;
+  margin-left: auto;
+}
+
+.list-group-icon {
+  font-size: 13px !important;
+  color: var(--theme);
+  margin-right: 20px;
+}
