@@ -8,5 +8,5 @@ Generate and save USSD codes for Nigerian banks without stress.
 ![Bankie 2](https://github.com/tobyleye/Bankie/blob/master/shot1.png) 
 ![Bankie 3](https://github.com/tobyleye/Bankie/blob/master/shot3.png)
 
-### Inspiration
+## Inspiration
 This project is heavily inspired by [737-Toolbox](https://github.com/fathermerry/737-Toolbox)
