@@ -1,6 +1,6 @@
 <template>
   <div :class="['modal', {'active': active}]">
-    <a href="#" class="modal-close" @click.prevent="closeModal" aria-label="close"></a>
+    <a class="modal-close" @click.prevent="closeModal" aria-label="close"></a>
     <div class="modal-content" role="document">
       <slot name="modal-content"></slot>
     </div>
@@ -15,7 +15,6 @@
     },
     methods: {
       closeModal () {
-        // close modal
         this.$emit('close')
       }
     }
@@ -23,8 +22,7 @@
 </script>
 
 <style lang="scss" scoped>
-  @mixin lay($position) {
-    position: $position;
+  @mixin cover {
     top: 0;
     bottom: 0;
     left: 0;
@@ -32,13 +30,15 @@
   }
 
   .modal {
-    @include lay(fixed);
+    position: fixed;
+    @include cover;
     z-index: 100;
     pointer-events: none;
     visibility: hidden;
 
     .modal-close {
-      @include lay(absolute);
+      position: absolute;
+      @include cover;
       background: rgba(#000,.5);
       opacity: 0;
       visibility: hidden;
@@ -55,7 +55,6 @@
       border-top-left-radius: .8rem;
       border-top-right-radius: .8rem;
       padding: 2.2rem 0rem 1.6rem;
-      // box-shadow: 0px -2px 1px rgba(0,0,0,.1);
       transform: translate3d(0, 100%, 0);
       transition: var(--base-speed) ease;
     }
