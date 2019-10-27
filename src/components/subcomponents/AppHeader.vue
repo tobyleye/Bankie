@@ -17,13 +17,11 @@
       </a>
       <a href="#" v-if="step == 1" 
         @click.prevent="switchTab('create')" 
-        :class="['header_toggle', {'active': currentTab == 'create'}]" role="tab"
-      >
+        :class="['header_toggle', {'active': currentTab == 'create'}]" role="tab">
         Create
       </a>
       <a href="#" @click.prevent="switchTab('saved')" 
-        :class="['header_toggle', {'active': currentTab == 'saved'}]" role="tab"
-      >
+        :class="['header_toggle', {'active': currentTab == 'saved'}]" role="tab">
         Saved
       </a>
     </nav>
