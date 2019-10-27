@@ -1,19 +1,31 @@
 <template>
   <header :style="headerStyle" class="header" id="header">
-    <div v-if="step == 1" class="header_intro">
-      <h1>Bankie</h1>
-      <h2>Generate and save USSD code for<br>your bank without stress</h2>
-    </div>
-    <div v-else class="logo_holder">
-      <img :src="'/static/logos/' + selectedBank.logo" alt="logo"/>
-    </div>
+    <template>
+      <div v-if="step == 1" class="header_intro">
+        <h1>Bankie</h1>
+        <h2>Generate and save USSD code for<br>your bank without stress</h2>
+      </div>
+      <div v-else class="logo_holder">
+        <img :src="'/static/logos/' + selectedBank.logo" alt="logo"/>
+      </div>
+    </template>
+    <!-- toggles -->
     <nav class="header_toggles" role="tablist">
       <a href="#" v-if="step > 1" @click.prevent="previousStep" class="header_toggle active">
         <i style="margin-right: 20px;" class="material-icons sm">arrow_back</i>
         Back
       </a>
-      <a href="#" v-if="step == 1" @click.prevent="switchTab('create')" :class="toggleClass('create')" role="tab">Create</a>
-      <a href="#" @click.prevent="switchTab('saved')" :class="toggleClass('saved')" role="tab">Saved</a>
+      <a href="#" v-if="step == 1" 
+        @click.prevent="switchTab('create')" 
+        :class="['header_toggle', {'active': currentTab == 'create'}]" role="tab"
+      >
+        Create
+      </a>
+      <a href="#" @click.prevent="switchTab('saved')" 
+        :class="['header_toggle', {'active': currentTab == 'saved'}]" role="tab"
+      >
+        Saved
+      </a>
     </nav>
   </header>
 </template>
@@ -45,13 +57,6 @@
       switchTab (tab) {
         this.$store.dispatch('resetToFirstStep')
         this.$store.commit('SWITCH_TAB', tab)
-      },
-      toggleClass(tab) {
-        const header_toggle = 'header_toggle'
-        if (tab == this.currentTab) {
-          return header_toggle + ' active'
-        }
-        return header_toggle
       }
     }
   }
