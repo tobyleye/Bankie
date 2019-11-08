@@ -55,9 +55,9 @@ html {
 }
 
 .pills {
-  margin-top: .5em;
+  margin-top: 10px;
   display: flex; 
-  flex-wrap: nowrap; 
+  flex-wrap: nowrap;
   overflow-x: auto;
   -ms-overflow-style: none;
   scrollbar-width: none;

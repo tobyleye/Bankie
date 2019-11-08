@@ -80,23 +80,28 @@ $toggle_height: 50px;
   position: absolute;
   bottom: 0;
   left: 0;
-  right: 0;
+  width: 100%;
   height: $toggle_height;
 
   .header_toggle {
     flex: 1;
     color: #fff;
-    text-align: center;
     height: 100%;
-    line-height: $toggle_height;
     text-decoration: none;
     display: flex;
     align-items: center;
     justify-content: center;
-  }
-
-  .header_toggle.active {
-    border-bottom: 4px solid #fff;
+    position: relative;
+  
+    &.active::after {
+      content: '';
+      height: 4px;
+      width: 100%;
+      background: #fff;
+      position: absolute;
+      bottom: 0;
+      // right: 0;
+    }
   }
 }
 
@@ -112,7 +117,7 @@ $toggle_height: 50px;
 
   h2 {
     font-size: 1.4rem;
-    color: #f6f8f9;
+    color: #fbfbfb;
     font-weight: 400;
     line-height: 1.2;
   }
