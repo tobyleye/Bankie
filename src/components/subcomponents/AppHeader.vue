@@ -129,11 +129,16 @@ $toggle_height: 50px;
   background: #fff;
   padding: 10px;
   border-radius: 3px;
-  animation: moon-slide var(--base-speed) ease;
+  animation: show var(--base-speed) ease;
 
   img {
     width: 100%;
     height: 100%;
   }
+}
+
+@keyframes show {
+  from {transform: scale(0.4)}
+  to {transform: scale(1)}
 }
 </style>
