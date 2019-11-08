@@ -51,9 +51,13 @@
         // set css theme property
         document.documentElement.style
           .setProperty('--theme', this.theme)
-        document
-          .querySelector('meta[name="theme-color"]')
-          .setAttribute('content', this.theme);
+
+        // only change browser tab color when current tab is create.
+        if (this.currentTab === 'create') {
+          document
+            .querySelector('meta[name="theme-color"]')
+            .setAttribute('content', this.theme);
+        }
       }
     }
   }
