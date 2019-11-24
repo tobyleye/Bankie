@@ -1,18 +1,7 @@
 <template>
   <div class="content">
     <div class="form-container">
-      <transfer-money-form
-        v-if="action == 'transfer'"
-        @submit-form="submitForm"
-      />
-      <send-airtime-form
-        v-if="action == 'airtime-others'"
-        @submit-form="submitForm"
-      />
-      <purchase-airtime-form 
-        v-if="action == 'airtime-self'"
-        @submit-form="submitForm"
-      />
+      <component :is="actionForm" @submit-form="submitForm"/>
     </div>
   </div>
 </template>
@@ -33,6 +22,17 @@
       SendAirtimeForm,
       PurchaseAirtimeForm,
       TransferMoneyForm
+    },
+
+    computed: {
+      actionForm () {
+        // action to form mapping
+        return ({
+          'transfer': 'transfer-money-form',
+          'airtime-others': 'send-airtime-form',
+          'airtime-self': 'purchase-airtime-form'
+        })[this.action]
+      }
     },
 
     methods: {
@@ -57,7 +57,6 @@
 <style lang="scss" scoped>
   .form-container {
     margin-top: 1.2rem;
-    position: absolute;
     width: 100%;
   }
 </style>
