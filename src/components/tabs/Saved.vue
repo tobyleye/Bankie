@@ -4,7 +4,7 @@
       <div v-if="this.savedRecords.length == 0" class="empty">
         <span role="img">😿</span>
         <p>no saved number</p>
-        <p>When you generate a code you have the option to save locally to your device</p>
+        <p>When you generate a code you have the option to save <strong>locally</strong> to your device</p>
       </div>
 
       <ul id="record-list" v-else class="record-list">
