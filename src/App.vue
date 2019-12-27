@@ -10,8 +10,8 @@
     <!-- Install prompt -->
     <install-prompt/>
     
-    <code-renderer />
-    <record-form />
+    <code-renderer/>
+    <record-form/>
   </div>
 </template>
 
@@ -43,7 +43,9 @@
         'theme',
         'step',
         'currentTab',
-        'selectedBank'
+        'selectedBank',
+        'showRecordForm',
+        'renderCode'
       ])
     },
      watch: {

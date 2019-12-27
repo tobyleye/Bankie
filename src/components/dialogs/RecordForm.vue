@@ -1,5 +1,5 @@
 <template>
-  <modal id="record-form" :active="showRecordForm" @close="closeRecordForm">
+  <modal id="record-form" v-if="showRecordForm" @close="closeRecordForm">
     <template v-slot:modal-content>
       <h4>How much do you want to send to {{ record.name }} ({{ record.number }})</h4>
       <form @submit.prevent="submit">

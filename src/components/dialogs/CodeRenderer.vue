@@ -1,5 +1,5 @@
 <template>
-  <modal id="code-renderer" :active="renderCode" @close="close">
+  <modal id="code-renderer" v-if="renderCode" @close="close">
     <template v-slot:modal-content>
       <p>Your code is </p>
       <input type="text" class="code" ref="code" :value="code" readonly>
