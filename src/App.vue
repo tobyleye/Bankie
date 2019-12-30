@@ -59,6 +59,11 @@
           document
             .querySelector('meta[name="theme-color"]')
             .setAttribute('content', this.theme);
+        } 
+        else {
+          document
+            .querySelector('meta[name="theme-color"]')
+            .setAttribute('content', '#ca3e47' /* default theme*/)
         }
       }
     }
@@ -70,6 +75,5 @@
   @import './styles/layout.css';
   @import './styles/animations.css';
   @import './styles/lists.css';
-
   @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
 </style>
