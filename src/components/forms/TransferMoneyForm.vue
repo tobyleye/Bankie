@@ -30,7 +30,7 @@
           v-for="amt in [500, 1000, 2000, 5000, 10000, 20000]"
           :key="amt"
           @click="formData.amount = amt">
-            &#8358;{{ amt.toLocaleString() }}
+            &#8358; {{ amt.toLocaleString() }}
         </span>
       </div>
     </div>
