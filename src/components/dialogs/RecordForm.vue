@@ -48,16 +48,10 @@
         'record'
       ]),
       suggestedAmounts () {
-        const { action } = this.record
-        if (action) {
-          // if transaction is airtime related
-          if (action.includes('airtime')) {
-            return [100, 200, 500, 1000, 2000, 5000]
-          }
-          // transaction is a transfer
-          return [500, 1000, 2000, 5000, 10000, 20000]
+        if (this.record.action.includes('airtime')) {
+          return [100, 200, 500, 1000, 2000, 5000]
         }
-        return []
+        return [500, 1000, 2000, 5000, 10000, 20000]
       }
     },
     data () {

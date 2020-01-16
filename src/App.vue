@@ -7,11 +7,17 @@
       <saved-tab v-else />
     </main>
 
+    <!-- modal overlay -->
+    <transition name="showModalOverlay">
+      <div v-if="renderCode || showRecordForm" class="modal-close"
+        @click="closeActiveModal" aria-label="modal close"></div>
+    </transition>
+
     <!-- Install prompt -->
     <install-prompt/>
     
-    <code-renderer/>
     <record-form/>
+    <code-renderer/>
   </div>
 </template>
 
@@ -48,7 +54,7 @@
         'renderCode'
       ])
     },
-     watch: {
+    watch: {
       theme() {
         // set css theme property
         document.documentElement.style
@@ -66,14 +72,27 @@
             .setAttribute('content', '#ca3e47' /* default theme*/)
         }
       }
+    },
+    methods: {
+      closeActiveModal() {
+        // close active modal
+        if (this.renderCode) {
+          this.$store.commit('DISMISS_RENDER_MODAL')
+        }
+
+        if (this.showRecordForm) {
+          this.$store.commit('DISMISS_RECORD_FORM')
+        }
+
+      }
     }
   }
 </script>
 
 <style lang="scss">
+  @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
   @import './styles/forms.css';
   @import './styles/layout.css';
   @import './styles/animations.css';
   @import './styles/lists.css';
-  @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
 </style>
