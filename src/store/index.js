@@ -24,6 +24,7 @@ export default new Vuex.Store({
   getters: {
     theme: (state, getters) => getters.selectedBank.theme || DEFAULT_THEME,
     renderCode: state => state.renderCode,
+    showRecordForm: state => state.showRecordForm,
     code: state => state.code,
     step: state => state.step,
     currentTab: state => state.currentTab,

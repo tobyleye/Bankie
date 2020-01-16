@@ -6,7 +6,7 @@
         class="list-group-item" 
         :key="index"
         @click="selectMenu(menu)">
-        <i class="material-icons list-group-icon">radio_button_unchecked</i>
+        <i class="list-group-icon material-icons">radio_button_unchecked</i>
           {{ menu }}
         <i class="list-group-next material-icons sm" 
           v-if="menu !== 'main menu' && menu !== 'check account balance'">chevron_right</i>

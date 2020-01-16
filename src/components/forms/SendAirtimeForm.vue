@@ -35,7 +35,7 @@
       </div>
     </div>
 
-    <div class="switch-group form-group">
+    <div class="switch-group">
       <div class="switch-label">Save phone number?</div>
       <div class="onoffswitch">
         <input 
@@ -44,7 +44,10 @@
           class="onoffswitch-checkbox" 
           id="save-phone"
         >
-        <label for="save-phone" class="onoffswitch-label"></label>
+        <label for="save-phone" class="onoffswitch-label">
+          <span class="onoffswitch-inner"></span>
+          <span class="onoffswitch-switch"></span>
+        </label>
       </div>
     </div>
 
