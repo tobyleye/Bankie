@@ -1,76 +1,74 @@
 <template>
-  <div :class="['modal', {'active': active}]">
-    <a class="modal-close" @click.prevent="closeModal" aria-label="close"></a>
-    <div class="modal-content" role="document">
-      <slot name="modal-content"></slot>
+  <transition name="showModalContent">
+    <div class="modal">
+     <div class="modal-content" role="document">
+        <slot name="modal-content"></slot>
+      </div>
     </div>
-  </div>
+  </transition>
 </template>
 
 <script>
   export default {
     name: 'modal',
-    props: {
-      active: { type: Boolean, required: true }
-    },
-    methods: {
-      closeModal () {
-        this.$emit('close')
-      }
-    }
   }
 </script>
 
-<style lang="scss" scoped>
-  @mixin cover {
+<style lang="scss">
+
+  .modal-close {
+    position: absolute;
+    z-index: 10;
     top: 0;
-    bottom: 0;
     left: 0;
     right: 0;
+    bottom: 0;
+    cursor: pointer;
+    background: rgba(#000,.5);
   }
 
   .modal {
+    z-index: 20;
     position: fixed;
-    @include cover;
-    z-index: 100;
-    pointer-events: none;
-    visibility: hidden;
-
-    .modal-close {
-      position: absolute;
-      @include cover;
-      background: rgba(#000,.5);
-      opacity: 0;
-      visibility: hidden;
-      transition: var(--base-speed) ease;
-    }
+    bottom: 0;
+    left: 0;
+    right: 0;
 
     .modal-content {
+      width: 100%;
+      z-index: 30;
       text-align: center;
       background: white;
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      border-top-left-radius: .8rem;
-      border-top-right-radius: .8rem;
+      border-radius: .8rem .8rem 0 0;
       padding: 2.2rem 0rem 1.6rem;
-      transform: translate3d(0, 100%, 0);
-      transition: var(--base-speed) ease;
     }
   }
 
-  .modal.active {
-    pointer-events: visible;
-    visibility: visible;
+  // --- revert to this ---
 
-    .modal-close {
-      opacity: 1;
-      visibility: visible;
-    }
-
-    .modal-content {
-      transform: translate3d(0, 0, 0);
-    }
+  .showModalOverlay-enter,
+  .showModalOverlay-leave-to {
+    opacity: 0;
   }
+
+  .showModalContent-leave-to,
+  .showModalContent-enter {
+    transform: translate3d(0, 100%, 0);
+  }
+
+
+  // modal overlay
+  .showModalOverlay-enter-active,
+  .showModalOverlay-leave-active,
+  // modal content
+  .showModalContent-enter-active,
+  .showModalContent-leave-active  {
+    transition: .3s ease;
+  }
+
+  
+  .showModalOverlay-leave-active {
+    transition-delay: .3s;
+  }
+  
 </style>

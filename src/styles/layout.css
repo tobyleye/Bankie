@@ -44,7 +44,7 @@ html {
 }
 
 .pill {
-  display: inline-block;
+  white-space: nowrap;
   background: #85bb65;
   color: #fff;
   padding: 4px 10px;

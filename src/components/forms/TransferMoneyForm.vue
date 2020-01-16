@@ -30,13 +30,13 @@
           v-for="amt in [500, 1000, 2000, 5000, 10000, 20000]"
           :key="amt"
           @click="formData.amount = amt">
-            &#8358;{{ amt.toLocaleString() }}
+            &#8358; {{ amt.toLocaleString() }}
         </span>
       </div>
     </div>
 
-    <div class="switch-group form-group">
-      <div class="switch-label"> Is this {{ prefix }} {{ selectedBank.alias || selectedBank.name }} acount ?</div>
+    <div class="switch-group">
+      <div class="switch-label">Is this {{ prefix }} {{ selectedBank.alias || selectedBank.name }} acount ?</div>
       <div class="onoffswitch">
         <input 
           v-model="formData.isSameBank" 
@@ -44,11 +44,14 @@
           class="onoffswitch-checkbox" 
           id="is-samebank"
         >
-        <label for="is-samebank" class="onoffswitch-label"></label>
+        <label for="is-samebank" class="onoffswitch-label">
+          <span class="onoffswitch-inner"></span>
+          <span class="onoffswitch-switch"></span>
+        </label>
       </div>
     </div>
 
-    <div class="switch-group form-group">
+    <div class="switch-group">
       <div class="switch-label">Save account number?</div>
       <div class="onoffswitch">
         <input 
@@ -57,7 +60,10 @@
           class="onoffswitch-checkbox" 
           id="save-account"
         >
-        <label for="save-account" class="onoffswitch-label"></label>
+        <label for="save-account" class="onoffswitch-label">
+          <span class="onoffswitch-inner"></span>
+          <span class="onoffswitch-switch"></span>
+        </label>
       </div>
     </div>
 
@@ -101,9 +107,9 @@
       ]),
 
       prefix() {
-        const vowels = 'aeiou'
-        const char = this.selectedBank.name[0].toLowerCase()
-        return vowels.search(char) > -1 ? 'an' : 'a'
+        const vowels = 'aeio' // 'u' in this case is a consonant sound
+        const char = this.selectedBank.name.charAt(0).toLowerCase()
+        return vowels.includes(char) ? 'an' : 'a'
       }
     },
 
