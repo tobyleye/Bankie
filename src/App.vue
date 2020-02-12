@@ -10,7 +10,7 @@
     <!-- modal overlay -->
     <transition name="showModalOverlay">
       <div v-if="renderCode || showRecordForm" class="modal-close"
-        @click="closeActiveModal" aria-label="modal close"></div>
+        @click="closeActiveModal" aria-label="modal-close"></div>
     </transition>
 
     <!-- Install prompt -->

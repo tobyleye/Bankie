@@ -56,7 +56,6 @@
     transform: translate3d(0, 100%, 0);
   }
 
-
   // modal overlay
   .showModalOverlay-enter-active,
   .showModalOverlay-leave-active,
@@ -66,7 +65,6 @@
     transition: .3s ease;
   }
 
-  
   .showModalOverlay-leave-active {
     transition-delay: .3s;
   }
