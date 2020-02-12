@@ -16,6 +16,7 @@
     <!-- Install prompt -->
     <install-prompt/>
     
+    <!-- modals -->
     <record-form/>
     <code-renderer/>
   </div>
