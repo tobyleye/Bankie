@@ -1,7 +1,7 @@
 <template>
   <div class="content">
     <div class="form-container">
-      <component :is="actionForm" @submit-form="submitForm"/>
+      <component :is="activeForm" @submit-form="submitForm"/>
     </div>
   </div>
 </template>
@@ -15,7 +15,7 @@
     name: 'Form',
     
     props: { 
-      action: { type: String , required: true }
+      active: { type: String , required: true }
     },
     
     components: {
@@ -25,19 +25,19 @@
     },
 
     computed: {
-      actionForm () {
+      activeForm () {
         // action to form mapping
         return ({
           'transfer': 'transfer-money-form',
           'airtime-others': 'send-airtime-form',
           'airtime-self': 'purchase-airtime-form'
-        })[this.action]
+        })[this.active]
       }
     },
 
     methods: {
       submitForm (formData) {
-        let action = this.action;
+        let action = this.active;
         this.$store.dispatch('generateCode', { action, ...formData })
 
         if (formData.saveRecord && formData.recordName) {

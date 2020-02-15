@@ -2,7 +2,7 @@
   <div id="create" role="tabpanel">
     <transition :name="create_transition">
       <bank-list
-        v-if="step == 1" 
+        v-if="step == 1"
         @select-bank="onSelectBank"
       />
       <transaction-menu 
@@ -13,7 +13,7 @@
       />
       <b-form
         v-if="step == 3"
-        :action="action"
+        :active="action"
       />
     </transition>
   </div>
@@ -65,9 +65,7 @@
 
         if (
           // menu that don't require additional form
-          // ... todo ...
-          menu == 'main menu' || 
-          menu == 'check account balance'
+          ['main menu', 'check account balance'].includes(menu)
         ) {
           this.$store.dispatch('generateCode', {action});
         } else {

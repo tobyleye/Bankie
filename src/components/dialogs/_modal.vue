@@ -44,8 +44,6 @@
     }
   }
 
-  // --- revert to this ---
-
   .showModalOverlay-enter,
   .showModalOverlay-leave-to {
     opacity: 0;
