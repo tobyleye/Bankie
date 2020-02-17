@@ -16,7 +16,7 @@
         <span class="pill"
           v-for="amt in [100, 200, 500, 1000, 2000, 5000]"
           :key="amt"
-          @click="incrementAmountBy(amt)">
+          @click="formData.amount = amt">
             &#8358;{{ amt.toLocaleString() }}
         </span>
       </div>
@@ -43,9 +43,6 @@
     methods: {
       submit() {
         this.$emit('submit-form', this.formData)
-      },
-      incrementAmountBy(amount) {
-        this.formData.amount = +this.formData.amount + amount;
       }
     }
 

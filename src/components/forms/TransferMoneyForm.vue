@@ -36,7 +36,7 @@
     </div>
 
     <div class="switch-group">
-      <div class="switch-label">Is this {{ prefix }} {{ selectedBank.alias || selectedBank.name }} acount ?</div>
+      <div class="switch-label">Is this {{ prefix }} {{ selectedBank.alias || selectedBank.name }} acount?</div>
       <div class="onoffswitch">
         <input 
           v-model="formData.isSameBank" 
