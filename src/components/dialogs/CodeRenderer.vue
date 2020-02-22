@@ -4,7 +4,7 @@
       <p>Your code is</p>
       <input type="text" class="code" ref="code" :value="code" readonly>
       <div class="row">
-        <a href="#" class="button" @click.prevent="copyCode">Copy</a>
+        <button class="button" @click="copyCode">Copy</button>
         <a :href="`tel:${encodeURIComponent(code)}`" class="button">Call</a>
       </div>
     </template>
