@@ -1,10 +1,12 @@
+import * as React from "react";
+
 const cover = {
   top: 0,
   bottom: 0,
   right: 0,
   left: 0,
 };
-export default function Modal({ show, children, onClose }) {
+const Modal = ({ show, children, onClose }) => {
   return (
     <div
       style={{
@@ -13,7 +15,7 @@ export default function Modal({ show, children, onClose }) {
         display: "flex",
         alignItems: "flex-end",
         transition: "250ms",
-        visibility: show ? "visibile" : "hidden",
+        visibility: show === true ? "visible" : "hidden",
       }}
     >
       <div
@@ -22,7 +24,7 @@ export default function Modal({ show, children, onClose }) {
           position: "fixed",
           border: "1px solid black",
           ...cover,
-          background: "rgba(0,0,0,.2)",
+          background: "rgba(0,0,0,.68)",
           transition: "250ms",
           opacity: show ? 1 : 0,
         }}
@@ -43,4 +45,6 @@ export default function Modal({ show, children, onClose }) {
       </div>
     </div>
   );
-}
+};
+
+export default Modal;
