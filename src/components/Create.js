@@ -1,7 +1,22 @@
 import Slider from "./Slider";
 import banks from "../banks.json";
+import TransferMoneyForm from "./TransferMoneyForm";
+import PurchaseAirtimeForm from "./PurchaseAirtimeForm";
+import TransferAirtimeForm from "./TransferAirtimeForm";
+
+const forms = {
+  "transfer money": TransferMoneyForm,
+  "send airtime": TransferAirtimeForm,
+  "purchase airtime": PurchaseAirtimeForm,
+};
+
+const formsLabel = Object.keys(forms);
 
 export default function Create({ state, dispatch }) {
+  const { selectedBank, selectedTransaction } = state;
+
+  const Form = forms[selectedTransaction];
+
   return (
     <Slider active={state.step}>
       <div>
@@ -20,13 +35,18 @@ export default function Create({ state, dispatch }) {
       </div>
 
       <div>
-        {state.selectedBank &&
-          state.selectedBank.transaction_menu.map((tx) => (
+        {selectedBank &&
+          selectedBank.transaction_menu.map((tx) => (
             <div
               style={{ padding: 10 }}
-              onClick={() =>
-                dispatch({ type: "setTransaction", transaction: tx })
-              }
+              onClick={() => {
+                dispatch({ type: "setTransaction", transaction: tx });
+                if (formsLabel.includes(tx)) {
+                  dispatch({ type: "nextStep" });
+                } else {
+                  dispatch({ type: "renderCode" });
+                }
+              }}
             >
               {tx}
             </div>
@@ -34,9 +54,14 @@ export default function Create({ state, dispatch }) {
       </div>
 
       <div>
-        <form>
-          <input type="text" placeholder="enter your name" />
-        </form>
+        {Form && (
+          <Form
+            key={state.step}
+            onSubmit={(data) => {
+              dispatch({ type: "renderCode", formdata: data });
+            }}
+          />
+        )}
       </div>
     </Slider>
   );

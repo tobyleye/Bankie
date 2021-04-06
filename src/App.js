@@ -9,9 +9,14 @@ import CodeModal from "./components/CodeModal";
 const initialState = {
   activeTab: 0,
   step: 0,
+  code: null,
   selectedBank: null,
   selectedTransaction: "",
 };
+
+function calculateUSSDCode(bank, transaction, formdata) {
+  return "*909#";
+}
 
 function reducer(state, { type, ...action }) {
   if (type === "setBank") {
@@ -30,7 +35,6 @@ function reducer(state, { type, ...action }) {
   if (type === "setTransaction") {
     return {
       ...state,
-      step: state.step + 1,
       selectedTransaction: action.transaction,
     };
   }
@@ -48,13 +52,38 @@ function reducer(state, { type, ...action }) {
       step: state.step - 1,
     };
   }
+  if (type === "nextStep") {
+    return {
+      ...state,
+      step: state.step + 1,
+    };
+  }
+  if (type === "renderCode") {
+    const code = calculateUSSDCode(
+      state.selectedBank,
+      state.selectedTransaction,
+      action.formdata
+    );
+    return {
+      ...state,
+      code,
+    };
+  }
+  if (type === "clearCode") {
+    return {
+      ...state,
+      code: null,
+    };
+  }
   return state;
 }
 
 function App() {
   const [state, dispatch] = React.useReducer(reducer, initialState);
+  const { activeTab, selectedBank, step, code } = state;
 
-  const { activeTab, selectedBank, step } = state;
+  const clearCode = () => dispatch({ type: "clearCode" });
+
   return (
     <div>
       <Header
@@ -71,7 +100,20 @@ function App() {
           <Saved />
         </Tab>
       </main>
-      <CodeModal show={false} onClose={() => {}} />
+      <CodeModal show={!!code} code={code} onClose={clearCode} />
+      {/* <div
+        style={{
+          position: "fixed",
+          right: 0,
+          bottom: 0,
+          padding: 20,
+          background: "#222",
+          color: "#ccc",
+          transition: ".25s ease",
+        }}
+      >
+        <pre>{JSON.stringify(state, null, 2)}</pre>
+      </div> */}
     </div>
   );
 }

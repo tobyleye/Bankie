@@ -2,7 +2,7 @@ import useForm from "../utils/useForm";
 import useToggle from "../utils/useToggle";
 import TextField from "./TextField";
 
-export default function PurchaseAirtimeForm({ onSubmit }) {
+export default function TransferAirtimeForm({ onSubmit }) {
   const [formdata, setField] = useForm({
     accountNo: "",
     amount: "",

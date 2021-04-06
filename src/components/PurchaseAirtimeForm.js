@@ -3,7 +3,6 @@ import TextField from "./TextField";
 
 export default function PurchaseAirtimeForm({ onSubmit }) {
   const [formdata, setField] = useForm({
-    accountNo: "",
     amount: "",
   });
 
@@ -14,14 +13,6 @@ export default function PurchaseAirtimeForm({ onSubmit }) {
 
   return (
     <form onSubmit={onFormSubmit}>
-      <TextField
-        required
-        label="Phone Number"
-        name="accountNo"
-        value={formdata.accountNo}
-        onChange={(value) => setField("accountNo", value)}
-      />
-
       <div>
         <TextField
           required
