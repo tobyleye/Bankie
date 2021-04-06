@@ -1,6 +1,9 @@
 import * as React from "react";
 
 function Slider({ active, children }) {
+  if (active > React.Children.count(children)) {
+    throw new Error("Slider active prop is out of boundry");
+  }
   return (
     <div style={{ overflow: "hidden" }}>
       <div
